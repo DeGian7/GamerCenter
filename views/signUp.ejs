@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        body{
+            background: #2980B9;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .bg{
+            background-image: url(/img/img-login.jpg);
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container w-75 bg-primary mt-5 rounded shadow">
+        <div class="row align-items-stretch">
+            <div class="bg col d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+
+            </div>
+            <div class="col bg-white p-5 rounded-end">
+                <div class="text-end">
+                    <img src="" width="48px" alt="">
+                </div>
+                <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+                <form action="/register" method="POST">
+                    <div class="mb-4">
+                        <label for="text" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="username">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Correo electronico</label>
+                        <input type="email" class="form-control" name="useremail">
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <div class="d-grid gap-2 col-5 mx-auto">
+                        <button type="submit" value="Registrar usuario" class="btn btn-primary"><a href="index.ejs"></a> Registrarse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+     
+</body>
+</html>

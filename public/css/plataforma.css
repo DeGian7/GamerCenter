@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+
+
+
+.wrapper {
+    width: 70%;
+    margin: 5em 17em;
+    height: 100%;
+}
+
+.wrapper .title {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container .option_item {
+  display: block; 
+  position: relative;
+  width: 175px;
+  height: 175px;
+  margin: 10px;
+}
+
+.container .option_item .checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  
+}
+
+.option_item .option_inner {
+  width: 100%;
+  height: 100%;
+  background-image: url(FOT/a.jpg);
+  border-radius: 15px;
+  text-align: center;
+  padding: 58px 0px;
+  cursor: pointer;
+  color: #585c68;
+  display: block;
+  border: 6px solid black;
+  position: relative;
+  
+}
+
+.option_item .option_inner .icon {
+  margin-bottom: 10px;
+}
+
+.option_item .option_inner .icon .fab {
+  font-size: 32px;
+}
+.option_item .option_inner .icon .fas {
+    font-size: 32px;
+  }
+.option_item .option_inner .name {
+  user-select: none;
+}
+
+.option_item .checkbox:checked ~ .option_inner.pc {
+  border-color: #3b5999;
+  color: #3b5999;
+}
+
+.option_item .checkbox:checked ~ .option_inner.ps4 {
+  border-color: #5ba3df;
+  color: #55acee;
+}
+
+.option_item .checkbox:checked ~ .option_inner.celular {
+  border-color: #e4405f;
+  color: #e4405f;
+}
+
+.option_item .checkbox:checked ~ .option_inner.xbox {
+  border-color: #0077b5;
+  color: #0077b5;
+}
+
+.option_item .checkbox:checked ~ .option_inner.pc {
+  border-color: #25d366;
+  color: #25d366;
+}
+
+.option_item .checkbox:checked ~ .option_inner.ps4 {
+  border-color: #dd4b39;
+  color: #dd4b39;
+  
+}
+
+.option_item .checkbox:checked ~ .option_inner.celular {
+  border-color: #ff5700;
+  color: #ff5700;
+}
+
+.option_item .checkbox:checked ~ .option_inner.xbox {
+  border-color: #b92b27;
+  color: #b92b27;
+}
+
+.option_item .option_inner .tickmark {
+  position: absolute;
+  top: -2px;
+  left: -1px;
+  border: 20px solid;
+  border-color: #000 transparent transparent #000;
+  display: none;
+}
+
+.option_item .option_inner .tickmark:before {
+    content: "";
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  width: 15px;
+  height: 5px;
+  border: 3px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+}
+
+.option_item .checkbox:checked ~ .option_inner .tickmark {
+  display: block;
+ }
+
+.option_item .option_inner.pc .tickmark {
+  border-color: #3b5999 transparent transparent #3b5999;
+}
+
+.option_item .option_inner.ps4 .tickmark {
+  border-color: #55acee transparent transparent #42a3ec;
+}
+
+.option_item .option_inner.celular .tickmark {
+  border-color: #e4405f transparent transparent #e4405f;
+}
+
+.option_item .option_inner.xbox .tickmark {
+  border-color: #0077b5 transparent transparent #0077b5;
+}
+
+.option_item .option_inner.pc .tickmark {
+  border-color: #25d366 transparent transparent #25d366;
+}
+
+.option_item .option_inner.ps4 .tickmark {
+  border-color: #dd4b39 transparent transparent #dd4b39;
+}
+
+.option_item .option_inner.celular .tickmark {
+  border-color: #ff5700 transparent transparent #ff5700;
+}
+
+.option_item .option_inner.xbox .tickmark {
+  border-color: #b92b27 transparent transparent #b92b27;
+}
+.titulo_pla{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #ffffff;
+
+}
+
+
+.html,body{
+  /* Para que funcione correctamente en Smarthpones y Tablets */
+  height:100vh;
+}
+body {
+  /* Ruta relativa o completa a la imagen */
+  background-image: url(FOT/fondoc.jpg);
+  /* Centramos el fondo horizontal y verticalmente */
+  background-position: center center;
+  /* El fonde no se repite */
+  background-repeat: no-repeat;
+  /* Fijamos la imagen a la ventana para que no supere el alto de la ventana */
+  background-attachment: fixed;
+  /* El fonde se re-escala automáticamente */
+  background-size: cover;
+  /* Color de fondo si la imagen no se encuentra o mientras se está cargando */
+  background-color: #FFF;
+  /* Fuente para el texto */
+  text-align: center;
+  color: #000;
+  font-family: "Times New Roman", Times, serif;
+}
+/* Background para ancho máximo de la pantalla física */
+@media only screen and (max-device-width: 767px) {
+body {
+  background-image: url(FOT/fondoc.jpg);
+  color: #FFF;
+}
+}
+/* Background para ancho máximo del navegador */
+@media only screen and (max-width: 767px) {
+body {
+  background-image: url(FOT/fondoc.jpg);
+  color: #FFF;
+}
+}

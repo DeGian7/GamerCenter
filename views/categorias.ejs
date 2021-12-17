@@ -1,0 +1,116 @@
+<%- include("template/cabecera", {tituloWeb: "Categorias"}) %>
+
+    <h2 class="text-white text-center"><%= tituloCategorias %></h2>
+    <!--
+    <div class="container mt-5">
+        <div class="row align-items-start">
+          <div class="col text-center border border-dark border-5 rounded m-3 py-5 bg-primary bg-gradient">
+            <i class="fas fa-desktop" style="font-size: 3em"></i>
+            <p>PC</p>
+          </div>
+          <div class="col text-center border border-dark border-5 rounded m-3 py-5 bg-info bg-gradient">
+            <i class="fab fa-playstation" style="font-size: 3em"></i>
+            <p>PS4</p>
+          </div>
+          <div class="col text-center border border-dark border-5 rounded m-3 py-5 bg-warning bg-gradient">
+            <i class="fas fa-mobile-alt" style="font-size: 3em"></i>
+            <p>CELULAR</p>
+          </div>
+          <div class="col text-center border border-dark border-5 rounded m-3 py-5 bg-success bg-gradient">
+            <i class="fab fa-xbox" style="font-size: 3em"></i>
+            <p>XBOX</p>
+          </div>
+        </div>
+        <div class="row align-items-end">
+          <div class="col text-center border border-dark border-5 rounded m-3 py-5 bg-primary bg-gradient>
+            <a href=""> <i class="fab fa-youtube" style="font-size: 3em"></i> </a>
+            <p>PC</p>
+          </div>
+          <div class="col text-center border border-dark border-5 rounded m-3 py-5 bg-info bg-gradient">
+            <i class="fab fa-youtube" style="font-size: 3em"></i>
+            <p>PS4</p>
+          </div>
+          <div class="col text-center border border-dark border-5 rounded m-3 py-5 bg-warning bg-gradient">
+            <i class="fab fa-youtube" style="font-size: 3em"></i>
+            <p>CELULAR</p>
+          </div>
+          <div class="col text-center border border-dark border-5 rounded m-3 py-5 bg-success bg-gradient">
+            <i class="fab fa-youtube" style="font-size: 3em"></i>
+            <p>XBOX</p>
+          </div>
+        </div>
+      </div>
+      -->
+<div class="contenido_for" >
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <div class="wrapper">
+    <div class="container">
+      <label class="option_item">
+        <input <input onclick="window.location='/PC';" type="checkbox" class="checkbox">
+        <div class="option_inner pc">
+          <div class="tickmark"></div>
+          <div class="icon"><i class="fas fa-desktop"></i></i></div>
+          <div class="name">PC</div>
+        </div>
+      </label>
+      <label class="option_item">
+        <input <input onclick="window.location='/PS4';" type="checkbox" class="checkbox" checked>
+          <div class="option_inner ps4">
+            <div class="tickmark"></div>
+            <div class="icon"><i class="fab fa-playstation"></i></i></div>
+            <div class="name">PS4</div>
+          </div>
+    
+        </label>
+        <label <input onclick="window.location='/CELULAR';"  class="option_item">
+          <input type="checkbox" class="checkbox">
+          <div class="option_inner celular">
+            <div class="tickmark"></div>
+            <div class="icon"><i class="fas fa-mobile-alt"></i></i></div>
+            <div class="name">CELULAR</div>
+          </div>
+        </label>
+        <label class="option_item">
+          <input  <input onclick="window.location='/XBOX';" type="checkbox" class="checkbox" checked>
+          <div class="option_inner xbox">
+            <div class="tickmark"></div>
+            <div class="icon"><i class="fab fa-xbox"></i></div>
+            <div class="name">XBOX</div>
+          </div>
+        </label>
+        <label class="option_item">
+          <input  <input onclick="window.location='/videoPc';" type="checkbox" class="checkbox" checked>
+          <div class="option_inner pc">
+            <div class="tickmark"></div>
+            <div class="icon"><i class="fab fa-youtube"></i></div>
+            <div class="name">PC</div>
+          </div>
+        </label>
+        <label class="option_item">
+          <input <input onclick="window.location='/videoPs4';" type="checkbox" class="checkbox">
+          <div class="option_inner ps4">
+            <div class="tickmark"></div>
+            <div class="icon"><i class="fab fa-youtube"></i></div>
+            <div class="name">PS4</div>
+          </div>
+        </label>
+        <label class="option_item">
+          <input <input onclick="window.location='/videoCelular';" type="checkbox" class="checkbox" checked>
+          <div class="option_inner celular">
+            <div class="tickmark"></div>
+            <div class="icon"><i class="fab fa-youtube"></i></div>
+            <div class="name">CELULAR</div>
+          </div>
+        </label>
+        <label class="option_item">
+          <input <input onclick="window.location='/videoXbox';" type="checkbox" class="checkbox">
+          <div class="option_inner xbox">
+            <div class="tickmark"></div>
+            <div class="icon"><i class="fab fa-youtube"></i></div>
+            <div class="name">XBOX</div>
+          </div>
+        </label>
+      </div>
+    
+    </div>
+<%- include("template/footer") %>

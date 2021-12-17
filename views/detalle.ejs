@@ -1,0 +1,75 @@
+<%- include("template/cabecera", {tituloWeb: "Detalle de mascota"}) %>
+
+    <div class="pt-5 text-white text-center ">
+        <h1>Edita tu juego</h1>
+        <% if (error) { %>
+         <p>
+             <%= mensaje %> 
+         </p>
+         <a href="/juegos" class="btn btn-danger btn-block">Volver a mascotas</a>
+        <% } %>
+
+        <% if (!error) { %>
+            <form id="formularioEditar" data-id="<%= juego.id %>" class="pt-5 mx-5">
+                <input type="text" class="form-control my-2 col-12" name="nombre" value="<%= juego.nombre %>" id="nombreInput">
+                <input type="text" class="form-control my-2 col-12" name="descripcion" value="<%= juego.descripcion %>" id="descripcionInput">
+                <button class="btn btn-warning btn-block col-12" type="submit" >Editar</button>
+            </form>
+            <hr>
+            <button class="btn btn-danger mx-5"
+                    id="btnEliminar"
+                    data-id="<%= juego.id %>">Eliminar
+            </button>
+            
+        <% } %>
+    </div>
+
+<%- include("template/footer") %>  
+
+<script>
+    const btnEliminar = document.querySelector("#btnEliminar")
+    btnEliminar.addEventListener("click", async() => {
+        console.log("me diste click")
+        const id = btnEliminar.dataset.id
+        try {
+            const data = await fetch(`/juegos/${id}`,{
+                method: "delete"
+            })
+            const res = await data.json()
+            if(res.estado){
+                window.location.href = "/juegos"
+            }else{
+                console.log(res)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    })
+
+    const formularioEditar = document.querySelector("#formularioEditar")
+    formularioEditar.addEventListener("submit", async(e)=>{
+        e.preventDefault()
+        const nombre = formularioEditar.elements["nombre"].value
+        const descripcion = document.querySelector("#descripcionInput").value
+        const id = formularioEditar.dataset.id
+        
+        try {
+            const data = await fetch(`/juegos/${id}`,{
+                method: "put",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({nombre: nombre, descripcion: descripcion})
+            })
+            const res = await data.json()
+            if (res.estado) {
+                    window.location.href = "/juegos"
+            } else {
+                console.log(res)
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    })
+</script>

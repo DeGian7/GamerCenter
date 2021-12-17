@@ -1,0 +1,120 @@
+<section class="shopping-cart" id="misCompras">
+	<div class="container">
+		<h1 class="text-center text-white row justify-content-center col-12">CARRITO</h1>
+		<hr>
+		<div class="row justify-content-center col-12">
+			<div class="col-6">
+				<div class="shopping-cart-header">
+					<h6 class="text-white">Producto</h6>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="shopping-cart-header">
+					<h6 class="text-truncate text-white">Precio</h6>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="shopping-cart-header">
+					<h6 class="text-white">Cantidad</h6>
+				</div>
+			</div>
+		</div>
+		<!-- ? START SHOPPING CART ITEMS -->
+		<div class="shopping-cart-items shoppingCartItemsContainer text-white">
+		</div>
+		<!-- ? END SHOPPING CART ITEMS -->
+
+		<!-- START TOTAL -->
+		<div class="row container">
+			<div class="col-12">
+				<div class="shopping-cart-total d-flex align-items-center">
+					<p class="mb-0 text-white">Total</p>
+					<p class="ml-4 mb-0 shoppingCartTotal text-white">0€</p>
+					<div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
+						data-delay="2000">
+						<div class="toast-header">
+							<span>✅</span>
+							<strong class="mr-auto ml-1 text-secondary text-white">Elemento en el carrito</strong>
+							<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="toast-body text-white">
+							Se aumentó correctamente la cantidad
+						</div>
+					</div>
+					<div id="paypal-button-container"></div>
+					<button class="btn btn-success ml-auto comprarButton text-white" type="button" data-toggle="modal"
+						data-target="#comprarModal">Comprar</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- END TOTAL -->
+
+		<!-- START MODAL COMPRA -->
+		<div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Pronto recibirá su pedido</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MODAL COMPRA -->
+
+
+	</div>
+
+</section>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+	crossorigin="anonymous"></script>
+<script src="js/tiendad.js"></script>
+
+<script>
+	paypal.Buttons({
+	  // Sets up the transaction when a payment button is clicked
+	   createOrder: function(data, actions) {
+		return actions.order.create({
+			purchase_units: [{
+				amount: {
+					  value: updateShoppingCartTotal() // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+				}
+			}]
+		});
+	 },
+	 // Finalize the transaction after payer approval
+	 onApprove: function(data, actions) {
+		  return actions.order.capture().then(function(orderData) {
+		  // Successful capture! For dev/demo purposes:
+			  console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+			 var transaction = orderData.purchase_units[0].payments.captures[0];
+			  alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+		  // When ready to go live, remove the alert and show a success message within this page. For example:
+		  // var element = document.getElementById('paypal-button-container');
+		  // element.innerHTML = '';
+		  // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+		  // Or go to another URL:  actions.redirect('thank_you.html');
+		  });
+	  }
+	  }).render('#paypal-button-container');
+  </script>
